@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail de l'article{% endblock %}
+
+{% block body %}
+<div class="jumbotron" >
+  <h1 class="display-6" >{{article.title}}</h1>
+  <p class="lead">{{article.description}}</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <p class="lead">
+  <img style="display:flex;align-item:center;justify-item:center"src="{{article.photo}}"></img>
+  </p>
+  <h6 class="display-6">Publié par : {{article.author}}</h1>
+  </div>
+    {% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<section style="display:flex;flex-wrap:wrap;justify-content:space-around;margin:2em; padding:2rem;"class="articles">
+{% for art in articles %}
+<div class="card bg-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">{{art.title}}</div>
+  <div class="card-body">
+    <h4 class="card-title">Article rédigé par <br>: {{art.author}}</h4>
+    <img style="width:300px;height:300px;" src="{{art.photo}}" class="card"></img>
+    <a href="{{ path('article_detail' , {'id': art.id})}}" style="text-align:center;"class="card-header btn-info">En savoir plus</a>
+    {% if app.user == true %}
+    <a style="text-align:center;" class= "card-header btn-info" href="{{ path('delete_article' , {'article': art.id}) }}">Supprimer</a>
+    {% endif %}
+  </div>
+  <h1></h1>
+</div>
+
+
+{% endfor %}
+
+</section>
+{% endblock %}
